@@ -6,7 +6,7 @@ Author: aon
 Version: 1.0.0
 */
 
-use Aon\statistics\statisticsInit;
+use Aon\statistics\StatisticsInit;
 
 global $wp_plugin_paths;
 foreach ($wp_plugin_paths as $dir => $realdir) {
@@ -17,4 +17,4 @@ foreach ($wp_plugin_paths as $dir => $realdir) {
     }
 }
 
-statisticsInit::install_actions();
+StatisticsInit::install_actions();

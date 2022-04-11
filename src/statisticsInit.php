@@ -2,7 +2,7 @@
 
 namespace Aon\statistics;
 
-class statisticsInit
+class StatisticsInit
 {
 
     public static function install_actions()
