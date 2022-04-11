@@ -8,13 +8,11 @@ Version: 1.0.0
 
 use Aon\statistics\StatisticsInit;
 
-global $wp_plugin_paths;
-foreach ($wp_plugin_paths as $dir => $realdir) {
-    if (strpos(__FILE__, $realdir) === 0) {
-        define('STATISTICS_FCPATH', $dir . '/' . basename(__FILE__));
-        define('STATISTICS_PATH', trailingslashit($dir));
-        break;
-    }
+// Exit if accessed directly
+if (! defined('ABSPATH')) {
+    exit;
 }
 
-StatisticsInit::install_actions();
+// Load
+require_once(dirname(__FILE__) . '/src/statisticsInit.php');
+StatisticsInit::install();
