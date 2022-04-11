@@ -3,7 +3,8 @@
 Plugin Name: Statistics
 Description: Wordpress sage / bedrock statistics plugin
 Author: aon
-Version: 1.0.0
+Author URI:  https://github.com/aon21/
+Version: 0.0.1
 */
 
 use Aon\statistics\StatisticsInit;
