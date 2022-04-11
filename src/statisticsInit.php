@@ -4,9 +4,16 @@ namespace Aon\statistics;
 
 class StatisticsInit
 {
+    private static $runInstallCalled = false;
 
-    public static function install()
+    public static function runInstall()
     {
-        register_activation_hook( __FILE__, 'my_plugin_create_db' );
+        if (self::$runInstallCalled) {
+            return;
+        }
+        self::$runInstallCalled = true;
+
+        $statisticsDBTables = new statisticsDBTables();
+        $statisticsDBTables->createAll(); //if not exists
     }
 }
