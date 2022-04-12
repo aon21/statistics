@@ -1,6 +1,6 @@
 <?php
 
-namespace Aon\statistics;
+namespace Aon\Statistics;
 
 class StatisticsDBTables
 {
