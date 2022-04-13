@@ -14,7 +14,7 @@ class StatisticsInit
         self::$runInstallCalled = true;
 
         $statisticsDBTables = new statisticsDBTables();
-        $statisticsDBTables->createAll(); //if not exists
+        $statisticsDBTables->createAll();
     }
 
     public static function activatePlugin()
