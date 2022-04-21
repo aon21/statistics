@@ -1,30 +1,40 @@
 <?php
 
-namespace Aon\Statistics;
-
 class StatisticsInit
 {
-    private static $runInstallCalled = false;
+    public static function installActions()
+    {
+        register_activation_hook(STT_PLUGIN, 'StatisticsInit::activatePlugin');
+        register_deactivation_hook(STT_PLUGIN, 'StatisticsInit::deactivatePlugin');
+
+        self::runActions();
+    }
 
     public static function runInstall()
     {
-        if (self::$runInstallCalled) {
-            return;
-        }
-        self::$runInstallCalled = true;
-
-        $statisticsDBTables = new statisticsDBTables();
-        $statisticsDBTables->createAll();
+        (new DbTables())->createAll();
     }
 
     public static function activatePlugin()
     {
-        StatisticsInit::runInstall();
+        self::runInstall();
         update_option('statisticsActivated', 1);
     }
 
     public static function deactivatePlugin()
     {
         update_option('statisticsActivated', 0);
+    }
+
+    public static function runActions()
+    {
+        if (is_admin()) {
+            add_action('admin_notices', 'StatisticsInit::notice');
+        }
+    }
+
+    public static function notice()
+    {
+        echo 'aaaaaaaaaaaaaa';
     }
 }

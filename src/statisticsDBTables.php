@@ -1,8 +1,6 @@
 <?php
 
-namespace Aon\Statistics;
-
-class StatisticsDBTables
+class DbTables
 {
     private static $tables = [
         "wp_statistics_subnet_deals" => "(
